@@ -97,33 +97,47 @@ int main(){
     //********************************
     //Begin of loop MAYBE??
     //********************************
-    
-    printf("==============================\n");
-    printf("Welcome at the Getr\x84nkeautomat\n");
-    printf("==============================\n");
-    printf("\nProdukte:\n");
+    while(1){    
+        system("cls"); //Clearing console window
 
-    for(int x = 1; x < i; x++){ //Printing all ids and products of the Getränkeautomat
-        printf("%i:\t%s\n", structDrinks[x].id, structDrinks[x].name);
-    }
+        printf("==============================\n");
+        printf("Welcome at the Getr\x84nkeautomat\n");
+        printf("==============================\n");
+        printf("\nProdukte:\n");
 
-    printf("Input Drink ID >>>");
-    scanf("%c", &cUserSelection);
-
-
-    if((int)cUserSelection >= i || (int)cUserSelection <= 0){ //if the user selection is above the max drinks or <= 0 then return incorrect selection
-        printf("Incorrect selection");
-        exit(404);
-
-    }else{
-        if(structDrinks[cUserSelection].bAgeCheck == 1){
-            if(!ageCheck(16)){//exit if age check is false
-                printf("You are not old enough!\n");
-                exit(0);
-            }   
+        for(int x = 1; x < i; x++){ //Printing all ids and products of the Getränkeautomat
+            printf("%i:\t%s\n", structDrinks[x].id, structDrinks[x].name);
         }
-        printf("You selected %i: %s", structDrinks[cUserSelection].id, structDrinks[cUserSelection].name);
+
+        printf("x:\tExit\n");
+
+        printf("Input Drink ID >>>");
+        scanf("%c", &cUserSelection);
+
+        if(cUserSelection == 'x' || cUserSelection == 'X'){
+            printf("User choose to exit\n");
+            exit(1);
+        }
+
+        cUserSelection = (int)cUserSelection - 48; // Conversion to int
+
+        if(cUserSelection >= i || cUserSelection <= 0){ //if the user selection is above the max drinks or <= 0 then return incorrect selection
+            printf("Incorrect selection");
+            exit(404);
+
+        }else{
+            if(structDrinks[cUserSelection].bAgeCheck == 1){
+                if(!ageCheck(16)){//exit if age check is false
+                    printf("You are not old enough!\n");
+                    exit(0);
+                }   
+            }
+            printf("You selected %i: %s\n", structDrinks[cUserSelection].id, structDrinks[cUserSelection].name);
+            fflush(stdin);
+            printf("Press enter to continue...\n");
+            scanf("%c");
+        }
     }
 
-    return 0; // Successful end of main
+    return 0; // Successful end of main (will never be reached cuz while(1))
 }
