@@ -129,12 +129,15 @@ int main(){
             if(structDrinks[cUserSelection].bAgeCheck == 1){
                 if(!ageCheck(16)){//exit if age check is false
                     printf("You are not old enough!\n");
-                    exit(0);
+                    fflush(stdin);
+                    printf("Press enter if you are done...\n");
+                    scanf("%c");
+                    continue;
                 }   
             }
             printf("You selected %i: %s\n", structDrinks[cUserSelection].id, structDrinks[cUserSelection].name);
             fflush(stdin);
-            printf("Press enter to continue...\n");
+            printf("Press enter if you are done...\n");
             scanf("%c");
         }
     }
