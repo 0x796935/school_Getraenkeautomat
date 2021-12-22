@@ -16,7 +16,7 @@ int ageCheck(int iMinAge){
     printf("Input Age >>>");
     scanf("%i",&iAge);
 
-    if(iAge >= iMinAge) //if above 18 return 1 (true)
+    if(iAge >= iMinAge) //if above iMinAge, then return 1 (true)
         return 1;
     else return 0; //else return 0 (false)
 }
