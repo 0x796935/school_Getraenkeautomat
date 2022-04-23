@@ -3,14 +3,6 @@
 #include <string.h> // including header for string values
 #include <stdbool.h> // including header for boolean values
 
-char getOS(){
-#ifdef _WIN32 // Includes both 32 bit and 64 bit
-	    return 'w';
-	#else
-	    return 'l';
-#endif
-}
-
 struct drinks {
     short int id; // id of the drink
 	char name[50];  //name of drink
@@ -59,9 +51,6 @@ int lineCount(char* filename){
 // ß = \xe1
 
 int main(){
-    if(getOS() == 'w')
-        system("cls");
-    else system("clear");
     // Variable der Struktur erstellen
     const int iLenghDrinks = (lineCount("drinks.txt")+1)/2;
     struct drinks structDrinks[iLenghDrinks]; // defining structure of drinks
