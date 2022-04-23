@@ -96,11 +96,7 @@ int main(){
     //********************************
     //Begin of loop MAYBE??
     //********************************
-    while(1){    
-        if(getOS() == 'w')
-            system("cls");
-        else system("clear");
-
+    while(1){
         printf("==============================\n");
         printf("Welcome at the Getr\x84nkeautomat\n");
         printf("==============================\n");
