@@ -55,7 +55,7 @@ int main(){
     const int iLenghDrinks = (lineCount("drinks.txt")+1)/2;
     struct drinks structDrinks[iLenghDrinks]; // defining structure of drinks
     int i = 1, iLine = 0; // index of the getraenk used for reading the drinks.txt file
-    
+    char cTemp = 'e';
     char cUserSelection = 0; // selected drink ID by user
 
 
@@ -128,14 +128,15 @@ int main(){
                     printf("You are not old enough!\n");
                     fflush(stdin);
                     printf("Press enter if you are done...\n");
-                    scanf("%c");
+                    scanf("%c", &cTemp);
                     continue;
                 }   
             }
             printf("You selected %i: %s\n", structDrinks[cUserSelection].id, structDrinks[cUserSelection].name);
             fflush(stdin);
+            fflush(stdout);
             printf("Press enter if you are done...\n");
-            scanf("%c");
+            scanf("%c", &cTemp);
         }
     }
 
